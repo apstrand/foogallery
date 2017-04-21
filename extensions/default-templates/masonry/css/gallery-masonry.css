@@ -169,17 +169,17 @@
     .foogallery-masonry.masonry-layout-5col .masonry-item-width,
     .foogallery-masonry.masonry-layout-4col .masonry-item-width,
     .foogallery-masonry.masonry-layout-3col .masonry-item-width,
-    .foogallery-masonry.masonry-layout-2col .masonry-item-width { width: 49%; }
+    .foogallery-masonry.masonry-layout-2col .masonry-item-width { width: 49% !important; }
 
     .foogallery-masonry.masonry-layout-5col .item,
     .foogallery-masonry.masonry-layout-4col .item,
     .foogallery-masonry.masonry-layout-3col .item,
-    .foogallery-masonry.masonry-layout-2col .item { width: 49%; }
+    .foogallery-masonry.masonry-layout-2col .item { width: 49% !important; }
 
     .foogallery-masonry.masonry-layout-5col .masonry-gutter-width,
     .foogallery-masonry.masonry-layout-4col .masonry-gutter-width,
     .foogallery-masonry.masonry-layout-3col .masonry-gutter-width,
-    .foogallery-masonry.masonry-layout-2col .masonry-gutter-width { width: 1%; }
+    .foogallery-masonry.masonry-layout-2col .masonry-gutter-width { width: 1% !important; }
 }
 
 /* Force 1 column layout < 320px */
@@ -187,17 +187,17 @@
     .foogallery-masonry.masonry-layout-5col .masonry-item-width,
     .foogallery-masonry.masonry-layout-4col .masonry-item-width,
     .foogallery-masonry.masonry-layout-3col .masonry-item-width,
-    .foogallery-masonry.masonry-layout-2col .masonry-item-width { width: 100%; }
+    .foogallery-masonry.masonry-layout-2col .masonry-item-width { width: 100% !important; }
 
     .foogallery-masonry.masonry-layout-5col .item,
     .foogallery-masonry.masonry-layout-4col .item,
     .foogallery-masonry.masonry-layout-3col .item,
-    .foogallery-masonry.masonry-layout-2col .item { width: 100%; margin-bottom: 2%; }
+    .foogallery-masonry.masonry-layout-2col .item { width: 100% !important; margin-bottom: 2% !important; }
 
     .foogallery-masonry.masonry-layout-5col .masonry-gutter-width,
     .foogallery-masonry.masonry-layout-4col .masonry-gutter-width,
     .foogallery-masonry.masonry-layout-3col .masonry-gutter-width,
-    .foogallery-masonry.masonry-layout-2col .masonry-gutter-width { width: 0; }
+    .foogallery-masonry.masonry-layout-2col .masonry-gutter-width { width: 0 !important; }
 }
 
 
