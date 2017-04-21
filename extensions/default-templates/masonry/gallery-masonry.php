@@ -42,7 +42,10 @@ $small_screen = $width + $gutter_width + $gutter_width;
 	<div class="masonry-item-width"></div>
 	<div class="masonry-gutter-width"></div>
 <?php foreach ( $current_foogallery->attachments() as $attachment ) {
-		echo '	<div class="item">' . $attachment->html( $args )  . '</div>
-';
+		echo '	<div class="item">';
+		echo $attachment->html( $args, true, false );
+		echo $attachment->html_caption( 'title' );
+		echo '</a>';
+		echo '</div>';
 	} ?>
 </div>
