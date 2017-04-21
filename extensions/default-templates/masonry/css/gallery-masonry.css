@@ -180,6 +180,8 @@
     .foogallery-masonry.masonry-layout-4col .masonry-gutter-width,
     .foogallery-masonry.masonry-layout-3col .masonry-gutter-width,
     .foogallery-masonry.masonry-layout-2col .masonry-gutter-width { width: 1% !important; }
+
+    .foogallery-masonry .foogallery-caption { opacity: 1; }
 }
 
 /* Force 1 column layout < 320px */
@@ -198,6 +200,8 @@
     .foogallery-masonry.masonry-layout-4col .masonry-gutter-width,
     .foogallery-masonry.masonry-layout-3col .masonry-gutter-width,
     .foogallery-masonry.masonry-layout-2col .masonry-gutter-width { width: 0 !important; }
+
+    .foogallery-masonry .foogallery-caption { opacity: 1; }
 }
 
 
