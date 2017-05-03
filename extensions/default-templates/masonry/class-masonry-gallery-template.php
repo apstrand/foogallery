@@ -123,6 +123,30 @@ if ( !class_exists( 'FooGallery_Masonry_Gallery_Template' ) ) {
 									'desc'    => __( 'Choose which lightbox you want to display images with. The lightbox will only work if you set the thumbnail link to "Full Size Image".', 'foogallery' ),
 									'type'    => 'lightbox',
 							),
+							array(
+									'id'      => 'date_separators',
+									'title'   => __( 'Date Separators', 'foogallery' ),
+									'desc'    => __( 'Separate photos by date', 'foogallery' ),
+									'type'    => 'radio',
+                                                                        'choices' => array(
+                                                                                        'day' => __('Day', 'foogallery'),
+                                                                                        'none' => __('No separators', 'foogallery')
+                                                                        ),
+                                                                        'spacer'  => '<span class="spacer"></span>',
+									'default' => 'none',
+							),
+							array(
+									'id'      => 'date_caption',
+									'title'   => __( 'Date Caption', 'foogallery' ),
+									'desc'    => __( 'Show EXIF date on hover', 'foogallery' ),
+									'type'    => 'radio',
+                                                                        'choices' => array(
+                                                                                        'yes' => __('Yes', 'foogallery'),
+                                                                                        'no' => __('No', 'foogallery')
+                                                                        ),
+                                                                        'spacer'  => '<span class="spacer"></span>',
+									'default' => 'no',
+							),
 					),
 			);
 
