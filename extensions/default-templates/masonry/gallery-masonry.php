@@ -75,7 +75,9 @@ if ($date_sep) {
   $ref_date = (new DateTime('@0'))->setTime(0, 0, 0);
 
   foreach ( $attachments as $attachment ) {
-    $img_date = DateTime::createFromFormat("Y:m:d H:i:s", $attachment->datetime());
+    $meta = wp_get_attachment_metadata($attachment->ID);
+    $timestamp = $meta['image_meta']['created_timestamp'];
+    $img_date = new DateTime("@$timestamp");
     $img_date_fmt = $img_date->format('Y-m-d H:i');
     $diff = (int)$ref_date->diff($img_date)->format("%r%a");
     $label = $img_date->format('F j, Y');
@@ -113,7 +115,9 @@ if ($date_sep) {
   uasort($ixmap, $grp_cmp);
 } else {
   foreach ( $attachments as $attachment ) {
-    $img_date = DateTime::createFromFormat("Y:m:d H:i:s", $attachment->datetime());
+    $meta = wp_get_attachment_metadata($attachment->ID);
+    $timestamp = $meta['image_meta']['created_timestamp'];
+    $img_date = new DateTime("@$timestamp");
     $img_date_fmt = $img_date->format('Y-m-d H:i');
     $atts[0][] = [$attachment, $img_date_fmt, $img_date->getTimestamp()];
   }
