@@ -35,6 +35,7 @@ if ( ! class_exists( 'FooGalleryAttachment' ) ) {
 			$this->height = 0;
 			$this->custom_url = '';
 			$this->custom_target = '';
+                        $this->exif_datetime = '';
 		}
 
 		/**
@@ -240,6 +241,16 @@ if ( ! class_exists( 'FooGalleryAttachment' ) ) {
 			}
 
 			return apply_filters( 'foogallery_attachment_html_caption', $html, $caption_content, $this );
+		}
+
+		public function datetime() {
+			if (! $this->exif_datetime) {
+				$path = get_attached_file($this->ID);
+				$exif = exif_read_data($path);
+				$this->exif_datetime = $exif["DateTimeOriginal"];
+			}
+			return $this->exif_datetime;
+
 		}
 	}
 }
