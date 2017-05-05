@@ -67,6 +67,8 @@ $prefix .= '  <div class="masonry-gutter-width"></div>';
 $labels = array();
 $atts = array();
 $times = array();
+$stuff = array();
+$extra = array();
 
 $ixmap = array();
 $attachments = $current_foogallery->attachments();
@@ -83,18 +85,23 @@ if ($date_sep) {
     $label = $img_date->format('F j, Y');
     if (array_key_exists($diff, $ixmap)) {
       $ix = $ixmap[$diff];
-      $atts[$ix][] = [$attachment, $img_date_fmt, $img_date->getTimestamp()];
+      $atts[$ix][] = count($stuff);
+      $stuff[] = $attachment;
+      $extra[$attachment->ID] = [$img_date_fmt, $img_date->getTimestamp()];
     } else {
       $ix = count($labels);
       $ixmap[$diff] = $ix;
       $times[$ix] = $img_date->getTimestamp();
       $labels[$ix] = $label;
-      $atts[$ix][] = [$attachment, $img_date_fmt, $img_date->getTimestamp()];
+      $atts[$ix] = [count($stuff)];
+      $stuff[] = $attachment;
+      $extra[$attachment->ID] = [$img_date_fmt, $img_date->getTimestamp()];
     }
   }
+  $atts[] = [];
   $day_sep_cmp = function ($ga, $gb) {
-    $a = $ga[2];
-    $b = $gb[2];
+    $a = $extra[$ga->ID][1];
+    $b = $extra[$gb->ID][1];
     if ($a == $b) {
         return 0;
     }
@@ -119,7 +126,9 @@ if ($date_sep) {
     $timestamp = $meta['image_meta']['created_timestamp'];
     $img_date = new DateTime("@$timestamp");
     $img_date_fmt = $img_date->format('Y-m-d H:i');
-    $atts[0][] = [$attachment, $img_date_fmt, $img_date->getTimestamp()];
+    $atts[0][] = count(stuff);
+    $stuff[] = $attachment;
+    $extra[$attachment->ID] = [$img_date_fmt, $img_date->getTimestamp()];
   }
   $ixmap[0] = 0;
 }
@@ -134,8 +143,8 @@ if ($date_sep) {
     }
     echo $prefix;
     for ($j = 0; $j < count($as); $j++) {
-                $attachment = $as[$j][0];
-                $datetime = $as[$j][1];
+                $attachment = $stuff[$as[$j]];
+                $datetime = $extra[$attachment->ID];
 		echo '	<div class="item">';
 		echo $attachment->html( $args, true, false );
                 if ($date_caption) {
