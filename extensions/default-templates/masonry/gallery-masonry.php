@@ -152,7 +152,7 @@ if ($date_sep) {
     echo $prefix;
     for ($j = 0; $j < count($as); $j++) {
                 $attachment = $stuff[$as[$j]];
-                $datetime = $extra[$attachment->ID];
+                $datetime = $extra[$attachment->ID][0];
 		echo '	<div class="item">';
 		echo $attachment->html( $args, true, false );
                 if ($date_caption) {
