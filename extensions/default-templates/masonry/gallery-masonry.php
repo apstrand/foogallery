@@ -134,7 +134,7 @@ if ($date_sep) {
     $timestamp = $meta['image_meta']['created_timestamp'];
     $img_date = new DateTime("@$timestamp");
     $img_date_fmt = $img_date->format('Y-m-d H:i');
-    $atts[0][] = count(stuff);
+    $atts[0][] = count($stuff);
     $stuff[] = $attachment;
     $extra[$attachment->ID] = [$img_date_fmt, $img_date->getTimestamp()];
   }
