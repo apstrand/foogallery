@@ -129,6 +129,7 @@ if ( !class_exists( 'FooGallery_Masonry_Gallery_Template' ) ) {
 									'desc'    => __( 'Separate photos by date', 'foogallery' ),
 									'type'    => 'radio',
                                                                         'choices' => array(
+                                                                                        'week' => __('Week', 'foogallery'),
                                                                                         'day' => __('Day', 'foogallery'),
                                                                                         'none' => __('No separators', 'foogallery')
                                                                         ),

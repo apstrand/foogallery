@@ -75,6 +75,9 @@ $attachments = $current_foogallery->attachments();
 if ($date_sep) {
 
   $ref_date = (new DateTime('@0'))->setTime(0, 0, 0);
+  if ($date_sep == 'week') {
+    $ref_date = (new DateTime('2017-03-01'))->setTime(0, 0, 0);
+  }
 
   foreach ( $attachments as $attachment ) {
     $meta = wp_get_attachment_metadata($attachment->ID);
@@ -82,7 +85,12 @@ if ($date_sep) {
     $img_date = new DateTime("@$timestamp");
     $img_date_fmt = $img_date->format('Y-m-d H:i');
     $diff = (int)$ref_date->diff($img_date)->format("%r%a");
-    $label = $img_date->format('F j, Y');
+    if ($date_sep == 'week') {
+      $diff = (int)floor($diff / 7);
+      $label = "week " . ($diff + 1);
+    } else {
+      $label = $img_date->format('F j, Y');
+    }
     if (array_key_exists($diff, $ixmap)) {
       $ix = $ixmap[$diff];
       $atts[$ix][] = count($stuff);
